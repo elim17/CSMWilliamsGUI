@@ -1,0 +1,165 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+
+public class ControlerGridPane extends Application {
+//	private static ControlerGridPane single_instance; //singleton stuff
+//	private ControlerGridPane() {
+//		
+//		if (single_instance != null){
+//            throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
+//        }
+//	} 
+	
+    public Stage window;
+    private static ControllerParams p;
+    public Scene scene;
+    Boolean skyTheme  = false;
+    private VBox vBox = new VBox();
+    private HBox hBox = new HBox();
+    private VBox verticalLayout = new VBox();
+    
+    public static void main(String[] args) throws FileNotFoundException {
+    	//configure using the config file
+    	p = ControllerParams.getInstance();
+    	p.readConfig();
+        launch(args);
+    }
+    
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        window = primaryStage;
+        window.setTitle(p.windowTitle);
+        window.setOnCloseRequest(e -> closeWindow()); // calls function for cleaning up after closing via red x in window. 
+        //GridPane with 10px padding around edge
+        
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(p.grid_wall_padding)); // puts padding in-between the layout and the window.
+        grid.setVgap(p.vertical_grid_padding); // puts padding in-between each vertical column
+        grid.setHgap(p.horizontal_grid_padding); // puts padding in-between each horizontal row.
+        
+        //get objects off of module list
+        ArrayList<StackPane> modules = p.getModules();
+        
+        //add the camera view if it exists
+        if(cameraViewExists())
+        {
+        	vBox.getChildren().add(modules.get(0)); // make sure that the Camera is added first in the 0 index
+        	modules.remove(0);
+        }
+        
+        //add the battery indicator if it exits 
+        if(batteryIndicatorExists())
+        {
+        	verticalLayout.getChildren().add(modules.get(0)); // make sure battery is in 1 index
+        	modules.remove(0);
+        }
+        
+        //add the keyPad if it exits 
+        if(keyPadExists())
+        {
+        	verticalLayout.getChildren().add(modules.get(0));  // make sure keypad is in 2 index
+        	modules.remove(0);
+        }
+        
+        int rowCounter = -1; // start at -1 to account for the first time the col is 0;
+        for(int i=0; i < modules.size(); ++i)
+        {
+        	StackPane module = modules.get(i);
+        	int col = i%p.grid_number_of_columns;
+        	if (col ==0) // when the column gets back to 0 it will increment the row Counter
+        	{
+        		rowCounter ++;
+        	}
+        		
+        	GridPane.setConstraints(module,col,rowCounter); //column, row
+        		
+            
+        }
+        
+        
+        for(StackPane module : modules)
+        {
+        	grid.getChildren().add(module);
+        	
+        }
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.getChildren().addAll(grid, verticalLayout);
+        vBox.getChildren().add(hBox);
+        //make the scene
+        scene = new Scene(vBox, p.window_width, p.window_hight);
+        scene.getStylesheets().add("SkyTheme.css");
+        window.setScene(scene);
+        window.show();
+    }
+    
+    // check if there is a camera view and set it to the top of the Vbox 
+    private Boolean  cameraViewExists()
+    {
+    	//WRITE THIS
+    	   	return true;
+    }
+    
+    private Boolean  batteryIndicatorExists()
+    {
+    	//WRITE THIS
+    	   	return true;
+    }
+    
+    private Boolean  keyPadExists()
+    {
+    	//WRITE THIS
+    	   	return true;
+    }
+    
+    private void closeWindow() 
+    {
+    	// closeWindow
+    	if(cameraViewExists())
+    	{
+    		CameraViewModule cm = CameraViewModule.getInstance();
+    		System.out.println("right before close");
+    		//cm.webcam.close(); // this doesn't work and consumes everything for some reason. 
+    		System.out.println("right after close");
+    		cm.webcam.removeWebcamListener(cm.panel); // ADD THIS LINE
+			cm.panel.stop();
+    		//cm.obsBoolean.set(true);
+    	}
+    	window.close();
+    }
+    
+    
+    //singleton stuff
+    
+	//////////////////////////////////////////////////////////////
+	//singleton stuff
+	
+	
+//	public static ControlerGridPane getInstance() 
+//    { 
+//        if (single_instance == null) 
+//        {
+//            single_instance = new ControlerGridPane(); 
+//        	
+//        }
+//  
+//        return single_instance; 
+//    }
+	
+	
+
+}
