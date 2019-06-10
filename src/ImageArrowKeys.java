@@ -141,6 +141,16 @@ public class ImageArrowKeys {
         
         StackPane layout = new StackPane(); // will put button right in the middle
 		layout.getChildren().add(grid);
+		
+		layout.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent ke) {
+                if (ke.getCode() != KeyCode.ESCAPE) {
+                    System.out.println("Key Pressed: " + ke.getCode());
+                    ke.consume(); // <-- stops passing the event to next node
+                }
+            }
+        });
+		
 		return layout;
 	}
 	
