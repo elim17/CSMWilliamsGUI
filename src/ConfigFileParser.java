@@ -30,6 +30,10 @@ public class ConfigFileParser {
 		    {
 		    	// it is empty and should be ignored
 		    }
+		    else if(configLine.startsWith("-"))
+		    {
+		    	// user doesn't want to run this module
+		    }
 		    else if(!isValidInput(configLine))
 		    {
 		    	//it is not a valid input 

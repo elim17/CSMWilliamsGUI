@@ -110,20 +110,34 @@ public class ControlerGridPane extends Application {
     // check if there is a camera view and set it to the top of the Vbox 
     private Boolean  cameraViewExists()
     {
-    	//WRITE THIS
+    	if(p.cameraExists)
+    	{
     	   	return true;
+    	}
+    	else 
+    	{
+    		return false;
+    	}
     }
     
     private Boolean  batteryIndicatorExists()
     {
-    	//WRITE THIS
-    	   	return true;
+    	if(p.batteryExists){
+    		return true;
+    	}
+    	else {
+    		return false;
+		}
     }
     
     private Boolean  keyPadExists()
     {
-    	//WRITE THIS
-    	   	return true;
+    	if(p.arrowKeysExists){
+    		return true;
+    	}
+    	else {
+    		return false;
+		}
     }
     
     private void closeWindow() 

@@ -27,6 +27,11 @@ public class ControllerParams {
 	int vertical_grid_padding = 5;
 	int horizontal_grid_padding = 5;
 	int grid_number_of_columns = 4;
+	
+	Boolean cameraExists = false;
+	Boolean batteryExists = false;
+	Boolean arrowKeysExists = false;
+	
 	String configFileName = "./src/ConfigureController.txt";	// need to have some of the path for it to work
 	
 	
@@ -105,11 +110,13 @@ public class ControllerParams {
 				
 			  cm = CameraViewModule.getInstance();
 			  controller_module_list.add(cm.getStackPane());
+			  cameraExists = true;
 			}
 			if(module.equals("BatteryIndicator"))
 			{		  
 			  bI = new BatteryIndicator();
 			  controller_module_list.add(bI.getStackPane());
+			  batteryExists = true;
 			}
 //			if(module.equals("RobotDrivingCommandsModule"))
 //			{
@@ -125,6 +132,7 @@ public class ControllerParams {
 			{ 
 			 imageKeys = new ImageArrowKeys();
 			 controller_module_list.add(imageKeys.getStackPane());
+			 arrowKeysExists = true;
 			}
 		}
 	}

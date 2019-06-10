@@ -1,8 +1,13 @@
-//Can use comments in this file using // at the start of the comment line. 
+//Configuration file
 
+
+//Instructions
+//Can use comments in this file using // at the start of the comment line. 
+//Can use - in front of modules to disallow  them without needing to delete the text
+
+//Modules
 CameraViewModule
 ImageArrowKeys
 BatteryIndicator
 TestNameField
 TestNameLabel
-
