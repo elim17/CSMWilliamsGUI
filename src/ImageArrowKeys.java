@@ -37,14 +37,14 @@ public class ImageArrowKeys {
 		backwardButton = new Button();
 		rightButton = new Button();
 		leftButton = new Button();
-		useKeyPadButton = new Button();
+//		useKeyPadButton = new Button();
 		
 		//set text
 //		forwardButton.setText("Forward");
 //		backwardButton.setText("Backward");
 //		rightButton.setText("Right");
 //		leftButton.setText("Left");
-		useKeyPadButton.setText("Keyboard");
+//		useKeyPadButton.setText("Keyboard");
 		
 		//set image for arrow
 		 Image image = new Image(getClass().getResourceAsStream("circleArrow.png"));
@@ -71,55 +71,51 @@ public class ImageArrowKeys {
 	     
 		
 			//set click listeners
-			forwardButton.setOnAction(e -> {System.out.println("robot move forward");
-			  //System.out.println("multiple lines of code in it!");
-				//todo: call function for moving forward
+			forwardButton.setOnAction(e -> {//System.out.println("robot move forward");
+			  moveForward();
 			
 			  });
 			
-			backwardButton.setOnAction(e -> {System.out.println("robot move backwards");
-			  //System.out.println("multiple lines of code in it!");
-				//todo: call function for moving backwards
+			backwardButton.setOnAction(e -> {//System.out.println("robot move backwards");
+			  moveBackward();
 			  });
 			
-			rightButton.setOnAction(e -> {System.out.println("robot turn right");
-			  //System.out.println("multiple lines of code in it!");
-					//todo: call function for moving right
+			rightButton.setOnAction(e -> {//System.out.println("robot turn right");
+			  turnRight();
 			  });
 			
-			leftButton.setOnAction(e -> {System.out.println("robot turn left");
-			  //System.out.println("multiple lines of code in it!");
-					//todo: call function for moving left
+			leftButton.setOnAction(e -> {//System.out.println("robot turn left");
+			  turnLeft();
 			  });
 			
-			useKeyPadButton.setOnAction(e -> {System.out.println("Change to Keyboard");
-					if(!keypadButtonPressed)
-					{
-							keypadButtonPressed = true;
-							useKeyPadButton.setText("Screen");
-							
-							// disable the other buttons
-							forwardButton.setDisable(true);
-							backwardButton.setDisable(true);
-							rightButton.setDisable(true);
-							leftButton.setDisable(true);
-							
-							useKeyArrows();
-							
-					}
-					else // the button is pressed so we need to use the keys on the keyboard
-					{
-						
-						  
-							keypadButtonPressed = false;
-							useKeyPadButton.setText("Keyboard");
-							forwardButton.setDisable(false);
-							backwardButton.setDisable(false);
-							rightButton.setDisable(false);
-							leftButton.setDisable(false);
-							useKeyArrows();
-					}
-			  });
+//			useKeyPadButton.setOnAction(e -> {System.out.println("Change to Keyboard");
+//					if(!keypadButtonPressed)
+//					{
+//							keypadButtonPressed = true;
+//							useKeyPadButton.setText("Screen");
+//							
+//							// disable the other buttons
+//							forwardButton.setDisable(true);
+//							backwardButton.setDisable(true);
+//							rightButton.setDisable(true);
+//							leftButton.setDisable(true);
+//							
+//							useKeyArrows();
+//							
+//					}
+//					else // the button is pressed so we need to use the keys on the keyboard
+//					{
+//						
+//						  
+//							keypadButtonPressed = false;
+//							useKeyPadButton.setText("Keyboard");
+//							forwardButton.setDisable(false);
+//							backwardButton.setDisable(false);
+//							rightButton.setDisable(false);
+//							leftButton.setDisable(false);
+//							useKeyArrows();
+//					}
+//			  });
 		
 		
 		
@@ -135,18 +131,40 @@ public class ImageArrowKeys {
         GridPane.setConstraints(backwardButton, 1, 2);
         GridPane.setConstraints(rightButton, 2, 1);
         GridPane.setConstraints(leftButton, 0, 1);
-        GridPane.setConstraints(useKeyPadButton, 1, 4);
+//        GridPane.setConstraints(useKeyPadButton, 1, 4);
 		
-        grid.getChildren().addAll(forwardButton, backwardButton, leftButton, rightButton, useKeyPadButton);
+        grid.getChildren().addAll(forwardButton, backwardButton, leftButton, rightButton/*, useKeyPadButton*/);
         
         StackPane layout = new StackPane(); // will put button right in the middle
 		layout.getChildren().add(grid);
+		
+		layout.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent ke) {
+
+				switch (ke.getCode()) {
+				case UP:
+					moveForward();
+					break;
+				case DOWN:
+					moveBackward();
+					break;
+				case LEFT:
+					turnLeft();
+					break;
+				case RIGHT:
+					turnRight();
+					break;
+				}
+				
+				ke.consume();
+			}
+        });
 		return layout;
 	}
 	
-	private void useKeyArrows()
-	{
-
+//	private void useKeyArrows()
+//	{
+//
 //            public void keyPressed(KeyEvent e) {
 //            	switch (e.getCode()) {
 //                case DOWN:
@@ -164,17 +182,30 @@ public class ImageArrowKeys {
 //            }
 //            
 //        }
-		
+//		
+//	}
+	
+	
+	private void moveForward() {
+		System.out.println("up");
 	}
-	
-	
 
-	
-	private ImageView getAndRotateImage(Image image, int degrees, int fitHeight, int fitWidth)
-	{
+	private void moveBackward() {
+		System.out.println("back");
+	}
+
+	private void turnLeft() {
+		System.out.println("left");
+	}
+
+	private void turnRight() {
+		System.out.println("right");
+	}
+
+	private ImageView getAndRotateImage(Image image, int degrees, int fitHeight, int fitWidth) {
 		ImageView imageView = new ImageView(image);
 		imageView.setFitHeight(fitHeight);
-	    imageView.setFitWidth(fitHeight);
+		imageView.setFitWidth(fitHeight);
 	    imageView.setPreserveRatio(true); //By default, it will not preserve the width:height ratio so we can do that with set Preserve ratio
 		imageView.setRotate(degrees);    
 		return imageView;
