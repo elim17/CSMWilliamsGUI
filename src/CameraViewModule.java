@@ -5,7 +5,6 @@ import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import javafx.embed.swing.SwingNode;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
 public class CameraViewModule {
