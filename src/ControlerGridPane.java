@@ -2,14 +2,10 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -17,13 +13,6 @@ import java.util.ArrayList;
 
 
 public class ControlerGridPane extends Application {
-//	private static ControlerGridPane single_instance; //singleton stuff
-//	private ControlerGridPane() {
-//		
-//		if (single_instance != null){
-//            throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
-//        }
-//	} 
 	
     public Stage window;
     private static ControllerParams p;
@@ -153,7 +142,6 @@ public class ControlerGridPane extends Application {
     	{
     		CameraViewModule cm = CameraViewModule.getInstance();
     		System.out.println("right before close");
-    		//cm.webcam.close(); // this doesn't work and consumes everything for some reason. 
     		System.out.println("right after close");
     		cm.webcam.removeWebcamListener(cm.panel); // ADD THIS LINE
 			cm.panel.stop();
@@ -163,22 +151,6 @@ public class ControlerGridPane extends Application {
     }
     
     
-    //singleton stuff
-    
-	//////////////////////////////////////////////////////////////
-	//singleton stuff
-	
-	
-//	public static ControlerGridPane getInstance() 
-//    { 
-//        if (single_instance == null) 
-//        {
-//            single_instance = new ControlerGridPane(); 
-//        	
-//        }
-//  
-//        return single_instance; 
-//    }
 	
 	
 

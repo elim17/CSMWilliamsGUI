@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ConfigFileParser {
 
-	public ArrayList<String> classesToInstantiate = new ArrayList();
+	public ArrayList<String> classesToInstantiate = new ArrayList<String>();
 	private String ManifestFileName = "./src/ModuleManifest.txt";
 	//public String filename = "ConfigureController.txt";
 	
@@ -72,7 +72,7 @@ public class ConfigFileParser {
 
 	private ArrayList<String> readModuleManifest() throws FileNotFoundException
 	{
-		ArrayList manifest = new ArrayList();
+		ArrayList<String> manifest = new ArrayList<String>();
 		File file = new File(ManifestFileName);
 		Scanner input = new Scanner(file);
 		while(input.hasNextLine()) {
