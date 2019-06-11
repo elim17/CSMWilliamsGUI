@@ -24,9 +24,10 @@ public class ControllerParams {
 	String windowTitle = "Controller";
 	
 	int grid_wall_padding = 10;
-	int vertical_grid_padding = 5;
-	int horizontal_grid_padding = 5;
+	int vertical_grid_padding = 10;
+	int horizontal_grid_padding = 10;
 	int grid_number_of_columns = 4;
+	int generalPadding = 15;
 	
 	Boolean cameraExists = false;
 	Boolean batteryExists = false;
@@ -100,12 +101,6 @@ public class ControllerParams {
 			
 			System.out.println(module);
 			
-			
-//			if(module.equals("VideoViewModule"))
-//			{
-//			  vm = new VideoViewModule();
-//			  controller_module_list.add(vm.getStackPane());
-//			}
 			if(module.equals("CameraViewModule"))
 			{ 
 				
@@ -119,16 +114,7 @@ public class ControllerParams {
 			  controller_module_list.add(bI.getStackPane());
 			  batteryExists = true;
 			}
-//			if(module.equals("RobotDrivingCommandsModule"))
-//			{
-//			  driver = new RobotDrivingCommandsModule();
-//			  controller_module_list.add(driver.getStackPane());
-//			}
-//			if(module.equals("ArrowKeysModue"))
-//			{
-//			 arrowKeys = new ArrowKeysModue();
-//			 controller_module_list.add(arrowKeys.getStackPane());
-//			}
+
 			if(module.equals("ImageArrowKeys"))
 			{ 
 			 imageKeys = new ImageArrowKeys();
@@ -138,7 +124,7 @@ public class ControllerParams {
 		}
 	}
 	
-	//determines which classes will continue to be instantiated.
+	//determines which classes will continue to be instantiated in the grid pane.
 	private void objectInstantiater()
 	{
 		for (String module : modulesToInstanmoduletiate) {
@@ -156,6 +142,21 @@ public class ControllerParams {
 			{
 				lM = new LEDModule();
 				controller_module_list.add(lM.getStackPane());
+			}
+			if(module.equals("VideoViewModule"))
+			{
+			  vm = new VideoViewModule();
+			  controller_module_list.add(vm.getStackPane());
+			}
+			if(module.equals("RobotDrivingCommandsModule"))
+			{
+			  driver = new RobotDrivingCommandsModule();
+			  controller_module_list.add(driver.getStackPane());
+			}
+			if(module.equals("ArrowKeysModue"))
+			{
+			 arrowKeys = new ArrowKeysModue();
+			 controller_module_list.add(arrowKeys.getStackPane());
 			}
 
 			

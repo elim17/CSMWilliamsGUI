@@ -12,3 +12,11 @@ BatteryIndicator
 -TestNameField
 -TestNameLabel
 LEDModule
+
+
+-ArrowKeysModule
+-RobotDrivingCommandsModule
+-TestNameField
+-TestNameLabel
+-VideoViewModule
+-LEDModule

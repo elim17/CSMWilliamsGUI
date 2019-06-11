@@ -11,33 +11,41 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
 public class BatteryIndicator {
+	
+	private double batteryPower = 80;
 	public StackPane getStackPane()
 	{
 		
 		
 		//slider is the user input right now change it to read battery. 
         final Slider slider = new Slider(0,100,100); // min, max , current
-//        slider.setMin(0);
-//        slider.setMax(50);
+        slider.setMin(0);
+        slider.setMax(50);
 
         
          
-        final ProgressBar pb = new ProgressBar(100);
+        final ProgressBar pb = new ProgressBar(80);
         pb.resize(pb.getWidth(), pb.getHeight() + 10);
         final Label label = new Label("100%");
         
 
         
         
-        slider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,
-                Number old_val, Number new_val) {
-                pb.setProgress(new_val.doubleValue()/50); // this is the bar that fills in
-                Integer currentPercentage = new_val.intValue();
-                label.setText(currentPercentage.toString() + "%");
-                label.setId("label-black");
-            }
-        });
+//        slider.valueProperty().addListener(new ChangeListener<Number>() {
+//            public void changed(ObservableValue<? extends Number> ov,
+//                Number old_val, Number new_val) {
+//                pb.setProgress(new_val.doubleValue()/50); // this is the bar that fills in
+//                Integer currentPercentage = new_val.intValue();
+//                label.setText(currentPercentage.toString() + "%");
+//                label.setId("label-black");
+//            }
+//        });
+        
+          pb.setProgress(batteryPower/100); // this is the bar that fills in
+	      Integer currentPercentage = (int)batteryPower;
+	      label.setText(currentPercentage.toString() + "%");
+	      label.setId("label-black");
+        
  
         final HBox hb = new HBox();
         hb.setSpacing(5);
@@ -51,5 +59,11 @@ public class BatteryIndicator {
 		layout.setAlignment(hb,Pos.CENTER_RIGHT); // comment these out when you take the slider out
 		layout.getChildren().addAll(hb, label);
 		return layout;
+	}
+	public double getBatteryPower() {
+		return batteryPower;
+	}
+	public void setBatteryPower(int batteryPower) {
+		this.batteryPower = batteryPower;
 	}
 }

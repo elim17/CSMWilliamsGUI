@@ -22,11 +22,11 @@ public class VideoViewModule {
         MediaView mediaView = new MediaView(player);
         //set the size 
         
-    	DoubleProperty mvw = mediaView.fitWidthProperty();
-    	DoubleProperty mvh = mediaView.fitHeightProperty();
-    	mvw.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
-    	mvh.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
-    	mediaView.setPreserveRatio(true);
+//    	DoubleProperty mvw = mediaView.fitWidthProperty();
+//    	DoubleProperty mvh = mediaView.fitHeightProperty();
+//    	mvw.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
+//    	mvh.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+//    	mediaView.setPreserveRatio(true);
 
     	Button playButton = new Button("Start");
     	Button stopButton = new Button("Stop");

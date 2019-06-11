@@ -1,10 +1,12 @@
 //Manifest
+// list of all classes think twice when changing as program checks config file against this list to make sure that class exists
+
 BatteryIndicator
 ImageArrowKeys
 CameraViewModule
-//ArrowKeysModule
-//RobotDrivingCommandsModule
+ArrowKeysModule
+RobotDrivingCommandsModule
 TestNameField
 TestNameLabel
-//VideoViewModule
+VideoViewModule
 LEDModule

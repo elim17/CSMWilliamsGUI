@@ -52,6 +52,8 @@ public class ControlerGridPane extends Application {
         grid.setVgap(p.vertical_grid_padding); // puts padding in-between each vertical column
         grid.setHgap(p.horizontal_grid_padding); // puts padding in-between each horizontal row.
         
+        vBox.setPadding(new Insets(p.generalPadding));
+        hBox.setPadding(new Insets(p.generalPadding));
         //get objects off of module list
         ArrayList<StackPane> modules = p.getModules();
         
@@ -59,6 +61,7 @@ public class ControlerGridPane extends Application {
         if(cameraViewExists())
         {
         	vBox.getChildren().add(modules.get(0)); // make sure that the Camera is added first in the 0 index
+        	modules.get(0).setPadding(new Insets(p.generalPadding));
         	modules.remove(0);
         }
         
@@ -66,6 +69,7 @@ public class ControlerGridPane extends Application {
         if(batteryIndicatorExists())
         {
         	verticalLayout.getChildren().add(modules.get(0)); // make sure battery is in 1 index
+        	modules.get(0).setPadding(new Insets(p.generalPadding));
         	modules.remove(0);
         }
         
@@ -73,6 +77,7 @@ public class ControlerGridPane extends Application {
         if(keyPadExists())
         {
         	verticalLayout.getChildren().add(modules.get(0));  // make sure keypad is in 2 index
+        	modules.get(0).setPadding(new Insets(p.generalPadding));
         	modules.remove(0);
         }
         
@@ -80,6 +85,7 @@ public class ControlerGridPane extends Application {
         for(int i=0; i < modules.size(); ++i)
         {
         	StackPane module = modules.get(i);
+        	module.setPadding(new Insets(p.generalPadding));
         	int col = i%p.grid_number_of_columns;
         	if (col ==0) // when the column gets back to 0 it will increment the row Counter
         	{
