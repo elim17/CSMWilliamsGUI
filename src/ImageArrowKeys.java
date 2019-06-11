@@ -26,7 +26,7 @@ public class ImageArrowKeys {
 	Button rightButton;
 	Button leftButton;
 	Button useKeyPadButton;
-	Boolean keypadButtonPressed = false;
+	Boolean keypadHover = false;
 	
 	
 	public StackPane getStackPane()
@@ -37,6 +37,13 @@ public class ImageArrowKeys {
 		backwardButton = new Button();
 		rightButton = new Button();
 		leftButton = new Button();
+		
+		
+		//Originally disable the buttons
+    	forwardButton.setDisable(true);
+		backwardButton.setDisable(true);
+		rightButton.setDisable(true);
+		leftButton.setDisable(true);
 //		useKeyPadButton = new Button();
 		
 		//set text
@@ -136,11 +143,33 @@ public class ImageArrowKeys {
         grid.getChildren().addAll(forwardButton, backwardButton, leftButton, rightButton/*, useKeyPadButton*/);
         
         StackPane layout = new StackPane(); // will put button right in the middle
+        layout.setOnMouseExited(e -> 
+        {
+        	keypadHover = false;
+        	layout.getParent().requestFocus();
+        	forwardButton.setDisable(true);
+			backwardButton.setDisable(true);
+			rightButton.setDisable(true);
+			leftButton.setDisable(true);
+		});
+        
+        layout.setOnMouseEntered(e ->
+        {
+        	keypadHover = true;
+        	layout.requestFocus();
+        	forwardButton.setDisable(false);
+			backwardButton.setDisable(false);
+			rightButton.setDisable(false);
+			leftButton.setDisable(false);
+        });
 		layout.getChildren().add(grid);
 		
 		layout.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent ke) {
-
+//				if(!keypadHover)
+//				{
+//				//	return; // this will skip the key presses if outside of the arrow module
+//				}
 				switch (ke.getCode()) {
 				case UP:
 					moveForward();
