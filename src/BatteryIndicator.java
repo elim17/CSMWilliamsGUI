@@ -23,7 +23,7 @@ public class BatteryIndicator {
         
          
         final ProgressBar pb = new ProgressBar(100);
-        pb.resize(pb.getWidth(), pb.getHeight() +10);
+        pb.resize(pb.getWidth(), pb.getHeight() + 10);
         final Label label = new Label("100%");
         
 
@@ -42,7 +42,7 @@ public class BatteryIndicator {
         final HBox hb = new HBox();
         hb.setSpacing(5);
         hb.setAlignment(Pos.CENTER);
-        hb.getChildren().addAll(slider, pb);
+        hb.getChildren().addAll( pb); //slider,
 		
 		
 		

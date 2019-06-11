@@ -50,6 +50,7 @@ public class ControllerParams {
 	 VideoViewModule  vm; 
 	 CameraViewModule cm; 
 	 BatteryIndicator bI;
+	 LEDModule lM;
 	
 	
 	public ArrayList<StackPane> getModules() {
@@ -150,6 +151,11 @@ public class ControllerParams {
 			{
 				testNameLabel = new TestNameLabel();
 				controller_module_list.add(testNameLabel.getStackPane());
+			}
+			if(module.equals("LEDModule"))
+			{
+				lM = new LEDModule();
+				controller_module_list.add(lM.getStackPane());
 			}
 
 			

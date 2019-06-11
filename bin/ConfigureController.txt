@@ -9,5 +9,6 @@
 CameraViewModule
 ImageArrowKeys
 BatteryIndicator
-TestNameField
-TestNameLabel
+-TestNameField
+-TestNameLabel
+LEDModule
