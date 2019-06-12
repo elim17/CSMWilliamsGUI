@@ -40,7 +40,15 @@ public class CameraViewModule {
     
    public WebcamPanel getCamPanel ()
    {
-	webcam = Webcam.getDefault();
+	
+	 
+	System.out.print(webcam.getWebcams());
+	
+	if(webcam.getWebcams().size()>1) {
+		webcam = webcam.getWebcams().get(1);
+	}else {
+		webcam = webcam.getDefault();
+	}
 	webcam.setViewSize(WebcamResolution.VGA.getSize());
 	
 	panel = new WebcamPanel(webcam);
