@@ -14,11 +14,14 @@ public class ConfigFileParser {
 	//public String filename = "ConfigureController.txt";
 	
 
-	public void readFile(String filename) throws FileNotFoundException
+	public void readFile(String filename)
 	{
 
 		File file = new File(filename);
-		Scanner input = new Scanner(file);
+		Scanner input;
+		try {
+			input = new Scanner(file);
+		
 
 		while(input.hasNextLine()) {
 		    String configLine = input.nextLine();
@@ -49,6 +52,11 @@ public class ConfigFileParser {
 		}
 		reorderClasses();
 		input.close();
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private Boolean isValidInput(String configInputLine) throws FileNotFoundException

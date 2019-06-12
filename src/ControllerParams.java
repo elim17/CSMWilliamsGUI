@@ -60,7 +60,7 @@ public class ControllerParams {
 	
 
 
-	public void readConfig() throws FileNotFoundException // gets called by main in grid pane
+	public void readConfig() // gets called by main in grid pane
 	{
 		configParser.readFile(configFileName); // file name stored in this file
 	}

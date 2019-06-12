@@ -22,12 +22,19 @@ public class ControlerGridPane extends Application {
     private HBox hBox = new HBox();
     private VBox verticalLayout = new VBox();
     
-    public static void main(String[] args) throws FileNotFoundException {
-    	//configure using the config file
+    public ControlerGridPane(){
     	p = ControllerParams.getInstance();
     	p.readConfig();
-        launch(args);
     }
+    
+    public static void main(String[] args) {
+    	//configure using the config file
+    	//ControlerGridPane cgp = new ControlerGridPane();
+    	//cgp.init();
+    	System.out.println("in main method");
+    	
+    }
+
     
     @Override
     public void start(Stage primaryStage) throws Exception {
