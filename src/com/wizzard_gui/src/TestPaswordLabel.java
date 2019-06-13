@@ -1,11 +1,12 @@
 package com.wizzard_gui.src;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 
 public class TestPaswordLabel {
-	public StackPane getPane()
+	public Pane getPane()
 	{	
 		Label passwordLabel = new Label("Password");
 		passwordLabel.setTextFill(Color.WHITE);

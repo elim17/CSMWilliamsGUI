@@ -6,6 +6,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import javafx.embed.swing.SwingNode;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class CameraViewModule {
@@ -15,7 +16,7 @@ public class CameraViewModule {
 	public Webcam webcam;
 	public WebcamPanel panel;
 	
-	public StackPane getPane()
+	public Pane getPane()
 	{
 		final SwingNode swingNode = new SwingNode();
 

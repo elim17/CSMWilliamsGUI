@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class BatteryIndicator extends StackPane {
@@ -37,7 +38,7 @@ public class BatteryIndicator extends StackPane {
 	}
 	
 	
-	public StackPane getPane()
+	public Pane getPane()
 	{
 //        slider.valueProperty().addListener(new ChangeListener<Number>() {
 //            public void changed(ObservableValue<? extends Number> ov,
