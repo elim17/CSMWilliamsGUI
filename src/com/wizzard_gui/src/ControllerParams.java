@@ -79,7 +79,7 @@ public class ControllerParams {
 			{ 
 				
 			  cm = CameraViewModule.getInstance();
-			  controller_module_list.add(cm.getStackPane());
+			  controller_module_list.add(cm.getPane());
 			  cameraExists = true;
 			}
 			if(module.equals("BatteryIndicator"))

@@ -15,7 +15,7 @@ public class CameraViewModule {
 	public Webcam webcam;
 	public WebcamPanel panel;
 	
-	public StackPane getStackPane()
+	public StackPane getPane()
 	{
 		final SwingNode swingNode = new SwingNode();
 
