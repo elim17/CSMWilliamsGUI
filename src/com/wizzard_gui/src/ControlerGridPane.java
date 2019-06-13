@@ -153,8 +153,8 @@ public class ControlerGridPane extends Application {
     		CameraViewModule cm = CameraViewModule.getInstance();
     		System.out.println("right before close");
     		System.out.println("right after close");
-    		cm.webcam.removeWebcamListener(cm.panel); // ADD THIS LINE
-			cm.panel.stop();
+    		cm.getWebcam().removeWebcamListener(cm.getWebcamPanel()); // ADD THIS LINE
+			cm.getWebcamPanel().stop();
     		//cm.obsBoolean.set(true);
     	}
     	window.close();
