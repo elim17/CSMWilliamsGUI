@@ -31,6 +31,7 @@ public class ControlerGridPane extends Application {
     	//configure using the config file
     	//ControlerGridPane cgp = new ControlerGridPane();
     	//cgp.init();
+    	launch(args);
     	System.out.println("in main method");
     	
     }
