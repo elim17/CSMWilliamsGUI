@@ -26,13 +26,11 @@ public class ControlerGridPane extends Application {
     
     public ControlerGridPane(){
     	p = ControllerParams.getInstance();
-    	p.readConfig();
     }
     
     public static void main(String[] args) {
     	//configure using the config file
     	//ControlerGridPane cgp = new ControlerGridPane();
-    	//cgp.init();
     	launch(args);
     	System.out.println("in main method");
     	
