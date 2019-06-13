@@ -12,13 +12,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class ImageArrowKeys extends StackPane {
-	ControllerParams p = ControllerParams.getInstance();
+	private ControllerParams p = ControllerParams.getInstance();
 
-	Button forwardButton;
-	Button backwardButton;
-	Button rightButton;
-	Button leftButton;
-	GridPane grid;
+	private Button forwardButton;
+	private Button backwardButton;
+	private Button rightButton;
+	private Button leftButton;
+	private GridPane grid;
 
 	public ImageArrowKeys() {
 		// make 4 buttons for forward, back, right and left.
@@ -52,14 +52,7 @@ public class ImageArrowKeys extends StackPane {
 		grid = new GridPane();
 		// make layout
 
-		grid.setPadding(new Insets(p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding)); // puts
-																															// padding
-																															// in-between
-																															// the
-																															// layout
-																															// and
-																															// the
-																															// window.
+		grid.setPadding(new Insets(p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding)); // puts padding in-between the layout and the window.
 		grid.setVgap(p.vertical_grid_padding); // puts padding in-between each vertical column
 		grid.setHgap(p.horizontal_grid_padding); // puts padding in-between each horizontal row.
 		// set constraints on buttons

@@ -72,11 +72,11 @@ public class CameraViewModule extends StackPane {
 
 	//// ---------------------------------------- Custom change listener for closing
 	//// the window.
-	public interface OnWindowClosedListener {
+	private interface OnWindowClosedListener {
 		public void onWindowClosed(Boolean newValue);
 	}
 
-	public class ObservableBoolean {
+	private class ObservableBoolean {
 		private OnWindowClosedListener listener;
 
 		private Boolean windowClosed = false;

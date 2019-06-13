@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 public class LEDModule{
 
 	
+	
 	public Pane getPane(){
 		Label label = new Label();
 		label.setText("LED Color");
