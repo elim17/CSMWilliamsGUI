@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -36,7 +37,7 @@ public class BatteryIndicator extends StackPane {
 	}
 	
 	
-	public StackPane getStackPane()
+	public StackPane getPane()
 	{
 //        slider.valueProperty().addListener(new ChangeListener<Number>() {
 //            public void changed(ObservableValue<? extends Number> ov,

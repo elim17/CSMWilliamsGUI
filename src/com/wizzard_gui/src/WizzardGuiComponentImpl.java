@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

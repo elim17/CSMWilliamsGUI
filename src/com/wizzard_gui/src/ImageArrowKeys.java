@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 
 
 import javafx.event.EventHandler;
@@ -19,7 +20,7 @@ public class ImageArrowKeys {
 	Button leftButton;
 	
 	
-	public StackPane getStackPane()
+	public StackPane getPane()
 	{
 		
 		//make 4 buttons for forward, back, right and left. 
@@ -38,7 +39,7 @@ public class ImageArrowKeys {
 
 		
 		//set image for arrow
-		 Image image = new Image(getClass().getResourceAsStream("circleArrow.png"));
+		 Image image = new Image(getClass().getResourceAsStream("../../../circleArrow.png"));
 //		 ImageView imageView = new ImageView(image);
 //		 imageView.setFitHeight(100);
 //	     imageView.setFitWidth(100);

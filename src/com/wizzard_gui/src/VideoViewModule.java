@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -7,7 +8,7 @@ import javafx.scene.media.MediaView;
 
 public class VideoViewModule {
 
-	public StackPane getStackPane()
+	public StackPane getPane()
 	{	
         
 		VBox vbox = new VBox();

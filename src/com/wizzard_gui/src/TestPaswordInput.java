@@ -1,8 +1,9 @@
+package com.wizzard_gui.src;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
 public class TestPaswordInput {
-	public StackPane getStackPane()
+	public StackPane getPane()
 	{
 		TextField passInput = new TextField();
         passInput.setPromptText("Password"); // gray indicator that disappears on click.

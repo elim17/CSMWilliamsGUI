@@ -1,5 +1,6 @@
+package com.wizzard_gui.src;
 import javafx.scene.layout.StackPane;
-
+import javafx.scene.layout.Pane;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class ControllerParams {
 	
 	
 	ArrayList <String> modulesToInstanmoduletiate = configParser.getClassesToInstantiate();
-	ArrayList<StackPane> controller_module_list;
+	ArrayList<Pane> controller_module_list;
 	
 	// start to make objects for all the classes //////////////////////////////////////
 	 TestNameField testNameField;
@@ -42,12 +43,12 @@ public class ControllerParams {
 	 LEDModule lM;
 	
 	
-	public ArrayList<StackPane> getModules() {
+	public ArrayList<Pane> getModules() {
 		
 		
 	
 	// Make the arraylist
-	controller_module_list = new ArrayList<StackPane>();
+	controller_module_list = new ArrayList<Pane>();
 	//make the correct objects 
 	specialObjectIntantiater(); // if adding things to this, you need to change the layout in the grid pane
 	
@@ -84,14 +85,14 @@ public class ControllerParams {
 			if(module.equals("BatteryIndicator"))
 			{		  
 			  bI = new BatteryIndicator();
-			  controller_module_list.add(bI.getStackPane());
+			  controller_module_list.add(bI.getPane());
 			  batteryExists = true;
 			}
 
 			if(module.equals("ImageArrowKeys"))
 			{ 
 			 imageKeys = new ImageArrowKeys();
-			 controller_module_list.add(imageKeys.getStackPane());
+			 controller_module_list.add(imageKeys.getPane());
 			 arrowKeysExists = true;
 			}
 		}
@@ -104,22 +105,22 @@ public class ControllerParams {
 			if(module.equals("TestNameField") )
 			{
 				 testNameField = new TestNameField();
-				 controller_module_list.add(testNameField.getStackPane());
+				 controller_module_list.add(testNameField.getPane());
 			}
 			if(module.equals("TestNameLabel"))
 			{
 				testNameLabel = new TestNameLabel();
-				controller_module_list.add(testNameLabel.getStackPane());
+				controller_module_list.add(testNameLabel.getPane());
 			}
 			if(module.equals("LEDModule"))
 			{
 				lM = new LEDModule();
-				controller_module_list.add(lM.getStackPane());
+				controller_module_list.add(lM.getPane());
 			}
 			if(module.equals("VideoViewModule"))
 			{
 			  vm = new VideoViewModule();
-			  controller_module_list.add(vm.getStackPane());
+			  controller_module_list.add(vm.getPane());
 			}
 
 			

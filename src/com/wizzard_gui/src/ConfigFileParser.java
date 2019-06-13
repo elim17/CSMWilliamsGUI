@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

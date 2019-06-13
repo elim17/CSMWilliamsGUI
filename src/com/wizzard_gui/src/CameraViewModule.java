@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import javax.swing.SwingUtilities;
 
 import com.github.sarxos.webcam.Webcam;

@@ -1,9 +1,11 @@
+package com.wizzard_gui.src;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -52,7 +54,7 @@ public class ControlerGridPane extends Application {
         vBox.setPadding(new Insets(p.generalPadding));
         hBox.setPadding(new Insets(p.generalPadding));
         //get objects off of module list
-        ArrayList<StackPane> modules = p.getModules();
+        ArrayList<Pane> modules = p.getModules();
         
         //add the camera view if it exists
         if(cameraViewExists())
@@ -81,7 +83,7 @@ public class ControlerGridPane extends Application {
         int rowCounter = -1; // start at -1 to account for the first time the col is 0;
         for(int i=0; i < modules.size(); ++i)
         {
-        	StackPane module = modules.get(i);
+        	Pane module = modules.get(i);
         	module.setPadding(new Insets(p.generalPadding));
         	int col = i%p.grid_number_of_columns;
         	if (col ==0) // when the column gets back to 0 it will increment the row Counter
@@ -95,7 +97,7 @@ public class ControlerGridPane extends Application {
         }
         
         
-        for(StackPane module : modules)
+        for(Pane module : modules)
         {
         	grid.getChildren().add(module);
         	
@@ -105,7 +107,7 @@ public class ControlerGridPane extends Application {
         vBox.getChildren().add(hBox);
         //make the scene
         scene = new Scene(vBox, p.window_width, p.window_hight);
-        scene.getStylesheets().add("SkyTheme.css");
+        scene.getStylesheets().add("../../../SkyTheme.css");
         window.setScene(scene);
         window.show();
     }

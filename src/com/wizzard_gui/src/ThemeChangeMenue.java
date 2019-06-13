@@ -1,3 +1,4 @@
+package com.wizzard_gui.src;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -8,7 +9,7 @@ public class ThemeChangeMenue{
 	
 	//ControlerGridPane gui = ControlerGridPane.getInstance();
 
-    public StackPane getStackPane()
+    public StackPane getPane()
     {
 
        Button button =  new Button("Set Theame");
