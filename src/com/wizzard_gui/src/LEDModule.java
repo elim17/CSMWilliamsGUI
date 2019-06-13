@@ -6,14 +6,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 
-public class LEDModule{
+public class LEDModule extends StackPane{
 
+	private Label label;
+	private ComboBox<String> LEDSelector;
 	
-	
-	public Pane getPane(){
-		Label label = new Label();
+	public LEDModule() {
+		label = new Label();
 		label.setText("LED Color");
-        ComboBox<String> LEDSelector = new ComboBox<String>();
+        LEDSelector = new ComboBox<String>();
         LEDSelector.getItems().addAll(
             "Off",
             "Red",
@@ -27,12 +28,12 @@ public class LEDModule{
         vb.getChildren().add(label);
         vb.getChildren().add(LEDSelector);
         
-        StackPane layout = new StackPane();
         
-        layout.getChildren().add(vb);
-        
-        
-        return layout;
+        this.getChildren().add(vb);
+	}
+	
+	public Pane getPane(){
+        return this;
     
 		
 	}
