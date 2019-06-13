@@ -40,17 +40,17 @@ public class ControlerGridPane extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-        window.setTitle(p.windowTitle);
+        window.setTitle(p.getWindowTitle());
         window.setOnCloseRequest(e -> closeWindow()); // calls function for cleaning up after closing via red x in window. 
         //GridPane with 10px padding around edge
         
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(p.grid_wall_padding)); // puts padding in-between the layout and the window.
-        grid.setVgap(p.vertical_grid_padding); // puts padding in-between each vertical column
-        grid.setHgap(p.horizontal_grid_padding); // puts padding in-between each horizontal row.
+        grid.setPadding(new Insets(p.getGrid_wall_padding())); // puts padding in-between the layout and the window.
+        grid.setVgap(p.getVertical_grid_padding()); // puts padding in-between each vertical column
+        grid.setHgap(p.getHorizontal_grid_padding()); // puts padding in-between each horizontal row.
         
-        vBox.setPadding(new Insets(p.generalPadding));
-        hBox.setPadding(new Insets(p.generalPadding));
+        vBox.setPadding(new Insets(p.getGeneralPadding()));
+        hBox.setPadding(new Insets(p.getGeneralPadding()));
         //get objects off of module list
         ArrayList<Pane> modules = p.getModules();
         
@@ -58,7 +58,7 @@ public class ControlerGridPane extends Application {
         if(cameraViewExists())
         {
         	vBox.getChildren().add(modules.get(0)); // make sure that the Camera is added first in the 0 index
-        	modules.get(0).setPadding(new Insets(p.generalPadding));
+        	modules.get(0).setPadding(new Insets(p.getGeneralPadding()));
         	modules.remove(0);
         }
         
@@ -66,7 +66,7 @@ public class ControlerGridPane extends Application {
         if(batteryIndicatorExists())
         {
         	verticalLayout.getChildren().add(modules.get(0)); // make sure battery is in 1 index
-        	modules.get(0).setPadding(new Insets(p.generalPadding));
+        	modules.get(0).setPadding(new Insets(p.getGeneralPadding()));
         	modules.remove(0);
         }
         
@@ -74,7 +74,7 @@ public class ControlerGridPane extends Application {
         if(keyPadExists())
         {
         	verticalLayout.getChildren().add(modules.get(0));  // make sure keypad is in 2 index
-        	modules.get(0).setPadding(new Insets(p.generalPadding));
+        	modules.get(0).setPadding(new Insets(p.getGeneralPadding()));
         	modules.remove(0);
         }
         
@@ -82,8 +82,8 @@ public class ControlerGridPane extends Application {
         for(int i=0; i < modules.size(); ++i)
         {
         	Pane module = modules.get(i);
-        	module.setPadding(new Insets(p.generalPadding));
-        	int col = i%p.grid_number_of_columns;
+        	module.setPadding(new Insets(p.getGeneralPadding()));
+        	int col = i%p.getGrid_number_of_columns();
         	if (col ==0) // when the column gets back to 0 it will increment the row Counter
         	{
         		rowCounter ++;
@@ -104,7 +104,7 @@ public class ControlerGridPane extends Application {
         hBox.getChildren().addAll(grid, verticalLayout);
         vBox.getChildren().add(hBox);
         //make the scene
-        scene = new Scene(vBox, p.window_width, p.window_hight);
+        scene = new Scene(vBox, p.getWindow_width(), p.getWindow_hight());
         scene.getStylesheets().add("../../../SkyTheme.css");
         window.setScene(scene);
         window.show();
@@ -113,7 +113,7 @@ public class ControlerGridPane extends Application {
     // check if there is a camera view and set it to the top of the Vbox 
     private Boolean  cameraViewExists()
     {
-    	if(p.cameraExists)
+    	if(p.getCameraExists())
     	{
     	   	return true;
     	}
@@ -125,7 +125,7 @@ public class ControlerGridPane extends Application {
     
     private Boolean  batteryIndicatorExists()
     {
-    	if(p.batteryExists){
+    	if(p.getBatteryExists()){
     		return true;
     	}
     	else {
@@ -135,7 +135,7 @@ public class ControlerGridPane extends Application {
     
     private Boolean  keyPadExists()
     {
-    	if(p.arrowKeysExists){
+    	if(p.getArrowKeysExists()){
     		return true;
     	}
     	else {

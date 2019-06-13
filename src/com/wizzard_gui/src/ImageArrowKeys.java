@@ -19,6 +19,7 @@ public class ImageArrowKeys extends StackPane {
 	private Button rightButton;
 	private Button leftButton;
 	private GridPane grid;
+	private boolean[] dirs = {false, false, false, false};
 
 	public ImageArrowKeys() {
 		// make 4 buttons for forward, back, right and left.
@@ -52,9 +53,9 @@ public class ImageArrowKeys extends StackPane {
 		grid = new GridPane();
 		// make layout
 
-		grid.setPadding(new Insets(p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding, p.grid_wall_padding)); // puts padding in-between the layout and the window.
-		grid.setVgap(p.vertical_grid_padding); // puts padding in-between each vertical column
-		grid.setHgap(p.horizontal_grid_padding); // puts padding in-between each horizontal row.
+		grid.setPadding(new Insets(p.getGrid_wall_padding(), p.getGrid_wall_padding(), p.getGrid_wall_padding(), p.getGrid_wall_padding())); // puts padding in-between the layout and the window.
+		grid.setVgap(p.getVertical_grid_padding()); // puts padding in-between each vertical column
+		grid.setHgap(p.getHorizontal_grid_padding()); // puts padding in-between each horizontal row.
 		// set constraints on buttons
 
 		GridPane.setConstraints(forwardButton, 1, 0);
@@ -192,35 +193,43 @@ public class ImageArrowKeys extends StackPane {
 	}
 
 	private void moveForward() {
-		System.out.println("up");
+		//System.out.println("up");
+		dirs[0] = true;
 	}
 
 	private void moveBackward() {
-		System.out.println("back");
+		//System.out.println("back");
+		dirs[1] = true;
 	}
 
 	private void turnLeft() {
-		System.out.println("left");
+		//System.out.println("left");
+		dirs[2] = true;
 	}
 
 	private void turnRight() {
-		System.out.println("right");
+		//System.out.println("right");
+		dirs[3] = true;
 	}
 	
 	private void stopForward() {
-		System.out.println("stop up");
+		//System.out.println("stop up");
+		dirs[0] = false;
 	}
 
 	private void stopBackward() {
-		System.out.println("stop back");
+		//System.out.println("stop back");
+		dirs[1] = false;
 	}
 
 	private void stopLeft() {
-		System.out.println("stop left");
+		//System.out.println("stop left");
+		dirs[2] = false;
 	}
 
 	private void stopRight() {
-		System.out.println("stop right");
+		//System.out.println("stop right");
+		dirs[3] = false;
 	}
 
 	private ImageView getAndRotateImage(Image image, int degrees, int fitHeight, int fitWidth) {
@@ -231,6 +240,10 @@ public class ImageArrowKeys extends StackPane {
 											// with set Preserve ratio
 		imageView.setRotate(degrees);
 		return imageView;
+	}
+	
+	public boolean[] getDirections() {
+		return dirs;
 	}
 
 }
