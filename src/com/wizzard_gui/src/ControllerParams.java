@@ -34,7 +34,7 @@ public class ControllerParams {
 	 TestNameField testNameField;
 	 TestNameLabel testNameLabel; 
 	 TestPasswordInput testpInput; 
-	 ThemeChangeMenue themeMenu;  
+	 ThemeChangeMenu themeMenu;  
 	 ImageArrowKeys imageKeys;
 	 TestPasswordLabel testpL; 
 	 VideoViewModule  vm; 
