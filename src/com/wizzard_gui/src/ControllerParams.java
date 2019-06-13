@@ -33,10 +33,10 @@ public class ControllerParams {
 	// start to make objects for all the classes //////////////////////////////////////
 	 TestNameField testNameField;
 	 TestNameLabel testNameLabel; 
-	 TestPaswordInput testpInput; 
+	 TestPasswordInput testpInput; 
 	 ThemeChangeMenue themeMenu;  
 	 ImageArrowKeys imageKeys;
-	 TestPaswordLabel testpL; 
+	 TestPasswordLabel testpL; 
 	 VideoViewModule  vm; 
 	 CameraViewModule cm; 
 	 BatteryIndicator bI;
