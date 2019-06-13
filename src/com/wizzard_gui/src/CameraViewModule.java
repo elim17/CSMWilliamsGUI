@@ -12,7 +12,7 @@ import javafx.embed.swing.SwingNode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-public class CameraViewModule extends Pane {
+public class CameraViewModule extends StackPane {
 	private static CameraViewModule single_instance = getInstance(); // singleton object
 	private ObservableBoolean obsBoolean = new ObservableBoolean();
 	private Webcam webcam;
